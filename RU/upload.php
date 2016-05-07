@@ -39,7 +39,7 @@ if(isset($_POST['fsub'])){
 				$result = mysqli_query($banco,$query);
 				if(!$result){ //se tiver problemas, retorna falso
 					print"PROBLEM DETECTED";
-					exit;
+					
 					//header('Location: tela.php');
 				}
 				else {echo '<div class="success">Cardápio salvo com sucesso.</div>';
