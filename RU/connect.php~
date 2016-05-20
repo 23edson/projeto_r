@@ -1,4 +1,0 @@
-<?php
-	$conecta = mysqli_connect("localhost", "root", "","RU") or print (mysqli_error());
-	//mysqli_select_db($conecta) or print(mysqli_error());
-?>
