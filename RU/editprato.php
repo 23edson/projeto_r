@@ -28,8 +28,15 @@ $banco = Conectar();
 	<meta name="robots" content="noindex" />    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript">
 		$(document).ready(function() {
-    		$('#example').DataTable();
-		} );
+    var table = $('#example').DataTable();
+ 
+    $('button').click( function() {
+        var data = table.$('input, select').serialize();
+        $.get("editp.php", data);
+       
+        return false;
+    } );
+} );
 	</script>
 </head>
 
@@ -48,26 +55,26 @@ $banco = Conectar();
 
 	<br>
 	<div class="table-reponsive">
-	<table id="example" class="display table" width="100%">
-		<thead>
+		<form action="editp.php" method="post">
+		<table id="example" class="display" width="100%" cellspacing="0">
+			<thead>
             <tr>
                 <th>Nome</th>
                 <th>Editar nome</th>
-								<th>Tipo</th>
-							  <th>Editar tipo</th>
+					<th>Tipo</th>
+					<th>Editar tipo</th>
             </tr>
-        </thead>
-        <tfoot>
+         </thead>
+         <tfoot>
             <tr>
                 <th>Nome</th>
                 <th>Editar nome</th>
-								<th>Tipo</th>
-							  <th>Editar tipo</th>
+					<th>Tipo</th>
+					<th>Editar tipo</th>
             </tr>
         </tfoot>
         <tbody>
-				  <form action="editp.php" method="post" enctype="multipart/form-data">
-					<?php
+        		<?php
 
 							$query = "Select nome,tipo from Pratos order by 1";
 							$result = mysqli_query($banco, $query);
@@ -79,10 +86,11 @@ $banco = Conectar();
 										while($row = $result->fetch_assoc()) {
 											echo "<tr>
 															<td>" . $row['nome'] . "</td>" .
-															"<td><input id='inputn" . $j++ ."' required='true' /></td>" .
+															"<td><input name='inputn" . $j . "' id='inputn" . $j ."'  /></td>" .
 															"<td>" . $row['tipo'] . "</td>" .
-															"<td><input id='inputt" . $j++ . "' required='true' /></td></tr>";
+															"<td><input name='inputtt" .$j . "' id='inputt" . $j . "'  /></td></tr>";
 
+										$j++;										
 										}
 
 								}
@@ -93,10 +101,21 @@ $banco = Conectar();
 							}
 
 						?>
-				  <input class="btn btn-success" type="submit" value="Adicionar" name="fsub" id="fsub"  /> </form>
-         </tbody>
-
-	</table></div>
+        
+        
+        
+        
+        </tbody>
+		
+		</table>
+		<input type="submit" id="subid" name="subid" value="ponrw">
+		</form>
+		 	
+		
+	
+	
+	
+	</div>
 <br><br><br><br>
 
 </body>

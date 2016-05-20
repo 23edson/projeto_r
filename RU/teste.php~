@@ -86,9 +86,9 @@ $banco = Conectar();
 										while($row = $result->fetch_assoc()) {
 											echo "<tr>
 															<td>" . $row['nome'] . "</td>" .
-															"<td><input name='inputn" . $j . "' id='inputn" . $j ."'  /></td>" .
+															"<td><input name='inputn" . $j . "' id='inputn" . $j ."' required='true' /></td>" .
 															"<td>" . $row['tipo'] . "</td>" .
-															"<td><input name='inputtt" .$j . "' id='inputt" . $j . "'  /></td></tr>";
+															"<td><input name='inputtt" .$j . "' id='inputt" . $j . "' required='true' /></td></tr>";
 
 										$j++;										
 										}

@@ -42,7 +42,7 @@ if(isset($_POST['fsub'])){
 					
 					//header('Location: tela.php');
 				}
-				else {echo '<div class="success">Cardápio salvo com sucesso.</div>';
+				else {echo '<div class="success">Prato salvo com sucesso.</div>';
 						$_SESSION['flag']=1;
 							header('Location: tela.php');
 				}
